@@ -1,0 +1,68 @@
+<section class="beautiful-section container py-5" *ngIf="places.length > id">
+  <!-- Title -->
+  <h1 class="text-center fw-bold display-5 mb-4 text-primary">
+    <i>{{ places[id].name }}</i>
+  </h1>
+  <hr class="underline mx-auto mb-5" />
+
+  <!-- Carousel -->
+  <div class="row mb-5">
+    <div class="col">
+      <div id="carouselExampleIndicators" class="carousel slide shadow-lg rounded overflow-hidden" data-bs-ride="carousel">
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+          <button *ngFor="let img of places[id].images; let i = index"
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  [attr.data-bs-slide-to]="i"
+                  [class.active]="i === 0"
+                  [attr.aria-current]="i === 0 ? 'true' : null"
+                  [attr.aria-label]="'Slide ' + (i + 1)">
+          </button>
+        </div>
+
+        <!-- Slides -->
+        <div class="carousel-inner">
+          <div *ngFor="let img of places[id].images; let i = index"
+               class="carousel-item"
+               [class.active]="i === 0">
+            <img [src]="img" class="d-block w-100 carousel-img" [alt]="'Slide ' + (i + 1)" />
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Text Section -->
+  <div class="row mb-5">
+    <div class="col">
+      <div class="card shadow-lg p-4 border-0 text-card">
+        <h2 class="text-primary fw-bold text-center mb-3"><i>ინფორმაცია</i></h2>
+        <div class="underline mx-auto mb-4"></div>
+        <p class="text-muted fs-5"><i>{{ places[id].text }}</i></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <div class="row">
+    <div class="col">
+      <div class="map-wrapper">
+        <iframe
+          [src]="safeIframeUrl"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>

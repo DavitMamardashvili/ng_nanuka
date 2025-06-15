@@ -1,0 +1,29 @@
+<hr class="underline mx-auto  mt-5">
+
+<h1 class="text-center fw-bold display-5 mb-4 mt-4 text-primary"><i>საქართველოს მიტოვებული შენობა ნაგებობები</i></h1>
+<hr class="underline mx-auto mb-5">
+
+<article class="cards-area">
+  <div class="card" *ngFor="let place of places">
+    <div class="cover" [ngStyle]="{
+        'background-image': 'url(' + place.images[0] + ')',
+        'background-size': 'cover',
+        'background-position': 'center'
+      }">
+      <div class="text-area">
+        <h1>{{ place.name }}</h1>
+        <p>{{ place.text }}</p>
+      </div>
+      <div class="card-back" [ngStyle]="{
+        'background-image': 'url(' + place.images[1] + ')',
+          'background-size': 'cover',
+          'background-position': 'center'
+        }">
+        <div class="lectureName">
+          <p>ადგილმდებარეობა : {{ place.location}}</p>
+        </div>
+        <a [routerLink]="['/info', place.id]">დეტალურად</a>
+      </div>
+    </div>
+  </div>
+</article>
