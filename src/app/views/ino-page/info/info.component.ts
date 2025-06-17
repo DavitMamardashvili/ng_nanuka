@@ -30,7 +30,6 @@ export class InfoComponent implements OnInit {
       images: [
         'assets/moxaliseoba/karmir_averatani/1.jpg',
         'assets/moxaliseoba/karmir_averatani/2.jpg',
-        'assets/moxaliseoba/karmir_averatani/3.jpg',
         'assets/moxaliseoba/karmir_averatani/4.jpg',
         'assets/moxaliseoba/karmir_averatani/5.jpg'
       ],
